@@ -39,15 +39,26 @@ devtools::install_github("mcewenkhundi/malawiShapefiles")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-#library(malawiShapefiles)
-## basic example code
+library(malawiShapefiles)
+library(sf)
+library(tidyverse)
+library(ggspatial)
+
+
+ggplot() +
+  geom_sf(data=malawi, aes(fill = bt_label)) +
+  scale_fill_manual(values = alpha(c("#DDDDDD", "#FF851B")),guide=FALSE) +
+  labs(y = "Latitude", 
+       x = "Longitude",
+       title = "Map of administrative districts of Malawi",
+       subtitle = "Blantyre is marked orange") +
+  geom_sf(data=malawi_lakes[malawi_lakes$NAME=="LAKE NYASA",], fill = "light blue", color = "blue") +
+  theme_light() +
+  annotation_scale(location = "bl", width_hint = 0.5) +
+  annotation_north_arrow(location = "tr", style = north_arrow_fancy_orienteering)
+
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
 
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
 
