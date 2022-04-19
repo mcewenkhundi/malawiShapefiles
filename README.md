@@ -25,21 +25,25 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("mcewenkhundi/malawiShapefiles")
 ```
 
-## Example
+## 1. Example
 
 This is a basic example which shows you how to solve a common problem:
+How to highlight a district in Malawi?
 
 ``` r
 library(malawiShapefiles)
 library(sf)
-#> Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1
+#> Warning: package 'sf' was built under R version 4.1.2
+#> Linking to GEOS 3.9.1, GDAL 3.2.1, PROJ 7.2.1; sf_use_s2() is TRUE
 library(tidyverse)
-#> -- Attaching packages --------------------------------------- tidyverse 1.3.0 --
-#> v ggplot2 3.3.3          v purrr   0.3.4     
-#> v tibble  3.1.1          v dplyr   1.0.5.9000
-#> v tidyr   1.1.2          v stringr 1.4.0     
-#> v readr   1.4.0          v forcats 0.5.0
-#> Warning: package 'tibble' was built under R version 4.0.5
+#> -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+#> v ggplot2 3.3.5     v purrr   0.3.4
+#> v tibble  3.1.6     v dplyr   1.0.8
+#> v tidyr   1.2.0     v stringr 1.4.0
+#> v readr   1.4.0     v forcats 0.5.1
+#> Warning: package 'tibble' was built under R version 4.1.2
+#> Warning: package 'tidyr' was built under R version 4.1.2
+#> Warning: package 'dplyr' was built under R version 4.1.2
 #> -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
@@ -57,19 +61,16 @@ ggplot() +
   theme_light() +
   annotation_scale(location = "bl", width_hint = 0.5) +
   annotation_north_arrow(location = "tr", style = north_arrow_fancy_orienteering)
+#> old-style crs object detected; please recreate object with a recent sf::st_crs()
+#> old-style crs object detected; please recreate object with a recent sf::st_crs()
+#> old-style crs object detected; please recreate object with a recent sf::st_crs()
+#> old-style crs object detected; please recreate object with a recent sf::st_crs()
+#> Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use
+#> `guide = "none"` instead.
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<img src="man/figures/README-example-1.png" width="100%" /> \## 2.
+Example
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+This is a basic example which shows you how to solve a common problem:
+How to display a continuous attribute of each district, i.e population ?
